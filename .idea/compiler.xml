@@ -22,15 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="reflection" />
         <module name="Reflection" />
-        <module name="reflectionhelper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="reflection" target="1.7" />
       <module name="Reflection" target="1.7" />
-      <module name="reflectionhelper" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
