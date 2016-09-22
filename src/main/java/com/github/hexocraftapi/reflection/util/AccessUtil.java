@@ -1,19 +1,19 @@
 package com.github.hexocraftapi.reflection.util;
 
 /*
- * Copyright 2015 hexosse
+ * Copyright 2016 hexosse
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 import java.lang.reflect.Constructor;
@@ -24,6 +24,7 @@ import java.lang.reflect.Modifier;
 /**
  * Helper class to set fields, methods &amp; constructors accessible
  */
+@SuppressWarnings("unused")
 public abstract class AccessUtil {
 
 	private AccessUtil() {}
@@ -33,6 +34,7 @@ public abstract class AccessUtil {
 	 *
 	 * @param field Field to set accessible
 	 * @return the Field
+	 *
 	 * @throws ReflectiveOperationException  (usually never)
 	 */
 	public static Field setAccessible(Field field) throws ReflectiveOperationException {
@@ -48,6 +50,7 @@ public abstract class AccessUtil {
 	 *
 	 * @param method Method to set accessible
 	 * @return the Method
+	 *
 	 * @throws ReflectiveOperationException  (usually never)
 	 */
 	public static Method setAccessible(Method method) throws ReflectiveOperationException {
@@ -60,6 +63,7 @@ public abstract class AccessUtil {
 	 *
 	 * @param constructor Constructor to set accessible
 	 * @return the Constructor
+	 *
 	 * @throws ReflectiveOperationException  (usually never)
 	 */
 	public static Constructor setAccessible(Constructor constructor) throws ReflectiveOperationException {

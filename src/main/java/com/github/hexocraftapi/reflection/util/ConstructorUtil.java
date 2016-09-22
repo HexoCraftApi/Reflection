@@ -1,19 +1,19 @@
 package com.github.hexocraftapi.reflection.util;
 
 /*
- * Copyright 2015 hexosse
+ * Copyright 2016 hexosse
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 import com.github.hexocraftapi.reflection.resolver.ConstructorResolver;
@@ -21,8 +21,9 @@ import com.github.hexocraftapi.reflection.resolver.ConstructorResolver;
 import java.lang.reflect.Constructor;
 
 /**
- * @author <b>hexosse</b> (<a href="https://github.comp/hexosse">hexosse on GitHub</a>))
+ * @author <b>Hexosse</b> (<a href="https://github.com/hexosse">on GitHub</a>))
  */
+@SuppressWarnings("unused")
 public class ConstructorUtil
 {
 	private ConstructorUtil() {}
@@ -33,6 +34,8 @@ public class ConstructorUtil
 	 *
 	 * @return the {@code Constructor<?>} that matches the specified
 	 * {@code clazz}  and {@code parameterTypes}
+	 *
+	 * @throws NoSuchMethodException If not exist in {@code clazz}
 	 */
 	public static Constructor<?> getConstructor(Class<?> clazz, Class<?>... parameterTypes) throws NoSuchMethodException
 	{
