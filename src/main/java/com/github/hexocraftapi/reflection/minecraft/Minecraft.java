@@ -144,6 +144,14 @@ public class Minecraft {
 		}
 
 		/**
+		 * @param version the version to check
+		 * @return <code>true</code> if this version is equals to the specified version
+		 */
+		public boolean equals(Version version) {
+			return version() == version.version();
+		}
+
+		/**
 		 * @param oldVersion The older version to check
 		 * @param newVersion The newer version to check
 		 * @return <code>true</code> if this version is newer than the oldVersion and older that the newVersion
