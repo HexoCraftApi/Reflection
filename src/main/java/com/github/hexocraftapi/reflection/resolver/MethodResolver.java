@@ -117,10 +117,14 @@ public class MethodResolver extends MemberResolver<Method> {
 
 	@Override
 	protected Method resolveObject(ResolverQuery query) throws ReflectiveOperationException {
-		for (Method method : this.clazz.getDeclaredMethods()) {
-			if (method.getName().equals(query.getName()) && (query.getTypes().length == 0 || ClassListEqual(query.getTypes(), method.getParameterTypes()))) {
-				return AccessUtil.setAccessible(method);
+		Class<?> clazz = this.clazz;
+		while (clazz != null) {
+			for (Method method : clazz.getDeclaredMethods()) {
+				if (method.getName().equals(query.getName()) && (query.getTypes().length == 0 || ClassListEqual(query.getTypes(), method.getParameterTypes()))) {
+					return AccessUtil.setAccessible(method);
+				}
 			}
+			clazz = clazz.getSuperclass();
 		}
 		throw new NoSuchMethodException();
 	}
