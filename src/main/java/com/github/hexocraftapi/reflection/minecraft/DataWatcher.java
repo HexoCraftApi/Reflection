@@ -29,6 +29,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Map;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class DataWatcher {
 
 	static ClassResolver classResolver    = new ClassResolver();
@@ -42,12 +43,12 @@ public class DataWatcher {
 	static Class<?> Entity           = nmsClassResolver.resolveSilent("Entity");
 	static Class<?> TIntObjectMap    = classResolver.resolveSilent("gnu.trove.map.TIntObjectMap", "net.minecraft.util.gnu.trove.map.TIntObjectMap");
 
-	static ConstructorResolver DataWacherConstructorResolver = new ConstructorResolver(DataWatcher);
+	private static ConstructorResolver DataWacherConstructorResolver = new ConstructorResolver(DataWatcher);
 
-	static FieldResolver DataWatcherFieldResolver = new FieldResolver(DataWatcher);
+	private static FieldResolver DataWatcherFieldResolver = new FieldResolver(DataWatcher);
 
-	static MethodResolver TIntObjectMapMethodResolver = new MethodResolver(TIntObjectMap);
-	static MethodResolver DataWatcherMethodResolver   = new MethodResolver(DataWatcher);
+	private static MethodResolver TIntObjectMapMethodResolver = new MethodResolver(TIntObjectMap);
+	private static MethodResolver DataWatcherMethodResolver   = new MethodResolver(DataWatcher);
 
 	public static Object newDataWatcher(Object entity) throws ReflectiveOperationException {
 		return DataWacherConstructorResolver.resolve(new Class[] { Entity }).newInstance(entity);

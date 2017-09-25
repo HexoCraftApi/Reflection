@@ -66,7 +66,7 @@ public class MethodUtil
 		{
 			return new MethodResolver(clazz).resolve(new ResolverQuery(name, parameterTypes));
 		}
-		catch(NoSuchMethodException e) {}
+		catch(NoSuchMethodException ignored) {}
 
 		return null;
 	}

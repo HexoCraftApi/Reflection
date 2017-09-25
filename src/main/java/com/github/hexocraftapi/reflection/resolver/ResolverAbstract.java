@@ -42,7 +42,7 @@ public abstract class ResolverAbstract<T> {
 	protected T resolveSilent(ResolverQuery... queries) {
 		try {
 			return resolve(queries);
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 		return null;
 	}

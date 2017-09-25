@@ -89,7 +89,7 @@ public class ResolverQuery {
 	 */
 	public static class Builder {
 
-		private List<ResolverQuery> queryList = new ArrayList<ResolverQuery>();
+		private List<ResolverQuery> queryList = new ArrayList<>();
 
 		private Builder() {
 		}

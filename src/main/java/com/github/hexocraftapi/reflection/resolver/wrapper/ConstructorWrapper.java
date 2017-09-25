@@ -18,6 +18,7 @@ package com.github.hexocraftapi.reflection.resolver.wrapper;
 
 import java.lang.reflect.Constructor;
 
+@SuppressWarnings("unused")
 public class ConstructorWrapper<R> extends WrapperAbstract {
 
 	private final Constructor<R> constructor;
@@ -42,7 +43,7 @@ public class ConstructorWrapper<R> extends WrapperAbstract {
 	public R newInstanceSilent(Object... args) {
 		try {
 			return this.constructor.newInstance(args);
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 		return null;
 	}

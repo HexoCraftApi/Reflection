@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class MethodWrapper<R> extends WrapperAbstract {
 
 	private final Method method;
@@ -49,7 +50,7 @@ public class MethodWrapper<R> extends WrapperAbstract {
 	public R invokeSilent(Object object, Object... args) {
 		try {
 			return (R) this.method.invoke(object, args);
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 		return null;
 	}

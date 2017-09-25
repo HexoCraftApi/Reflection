@@ -26,15 +26,17 @@ import com.github.hexocraftapi.reflection.resolver.wrapper.MethodWrapper;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class ReflectionAnnotations {
 
 	public static final ReflectionAnnotations INSTANCE = new ReflectionAnnotations();
 
-	static final Pattern classRefPattern = Pattern.compile("@Class\\((.*)\\)");
+	private static final Pattern classRefPattern = Pattern.compile("@Class\\((.*)\\)");
 
 	private ReflectionAnnotations() {
 	}
@@ -147,7 +149,7 @@ public class ReflectionAnnotations {
 	 * @param <A>        annotation type
 	 * @return a list of matching names
 	 */
-	<A extends Annotation> List<String> parseAnnotationVersions(java.lang.Class<A> clazz, A annotation) {
+	private <A extends Annotation> List<String> parseAnnotationVersions(java.lang.Class<A> clazz, A annotation) {
 		List<String> list = new ArrayList<>();
 
 		try {
@@ -155,9 +157,7 @@ public class ReflectionAnnotations {
 			Minecraft.Version[] versions = (Minecraft.Version[]) clazz.getMethod("versions").invoke(annotation);
 
 			if (versions.length == 0) {// No versions specified -> directly use the names
-				for (String name : names) {
-					list.add(name);
-				}
+				Collections.addAll(list, names);
 			} else {
 				if (versions.length > names.length) {
 					throw new RuntimeException("versions array cannot have more elements than the names (" + clazz + ")");
@@ -181,7 +181,7 @@ public class ReflectionAnnotations {
 		return list;
 	}
 
-	<A extends Annotation> String parseClass(java.lang.Class<A> clazz, A annotation, Object toLoad) {
+	private <A extends Annotation> String parseClass(java.lang.Class<A> clazz, A annotation, Object toLoad) {
 		try {
 			String className = (String) clazz.getMethod("className").invoke(annotation);
 			Matcher matcher = classRefPattern.matcher(className);
@@ -201,11 +201,11 @@ public class ReflectionAnnotations {
 		}
 	}
 
-	void throwInvalidFieldType(java.lang.reflect.Field field, Object toLoad, String expected) {
+	private void throwInvalidFieldType(java.lang.reflect.Field field, Object toLoad, String expected) {
 		throw new IllegalArgumentException("Field " + field.getName() + " in " + toLoad.getClass() + " is not of type " + expected + ", it's " + field.getType());
 	}
 
-	void throwReflectionException(String annotation, java.lang.reflect.Field field, Object toLoad, ReflectiveOperationException exception) {
+	private void throwReflectionException(String annotation, java.lang.reflect.Field field, Object toLoad, ReflectiveOperationException exception) {
 		throw new RuntimeException("Failed to set " + annotation + " field " + field.getName() + " in " + toLoad.getClass(), exception);
 	}
 

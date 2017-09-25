@@ -100,7 +100,7 @@ public class FieldUtil
 		{
 			return getFieldSilent(clazz, name).get(from);
 		}
-		catch(IllegalAccessException e) {}
+		catch(IllegalAccessException ignored) {}
 
 		return null;
 	}
@@ -119,7 +119,7 @@ public class FieldUtil
 		{
 			return ((T) new FieldResolver(from.getClass()).resolveSilent(name).get(from));
 		}
-		catch(IllegalAccessException e) {}
+		catch(IllegalAccessException ignored) {}
 
 		return null;
 	}

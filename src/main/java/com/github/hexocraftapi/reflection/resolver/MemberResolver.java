@@ -28,6 +28,7 @@ import java.lang.reflect.Member;
  * @see FieldResolver
  * @see MethodResolver
  */
+@SuppressWarnings("unused")
 public abstract class MemberResolver<T extends Member> extends ResolverAbstract<T> {
 
 	protected Class<?> clazz;

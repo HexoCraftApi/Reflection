@@ -16,6 +16,7 @@ package com.github.hexocraftapi.reflection.resolver.wrapper;
  * limitations under the License.
  */
 
+@SuppressWarnings("unused")
 public abstract class WrapperAbstract {
 
 	/**

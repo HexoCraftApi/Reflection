@@ -16,6 +16,7 @@ package com.github.hexocraftapi.reflection.resolver.wrapper;
  * limitations under the License.
  */
 
+@SuppressWarnings("unused")
 public class ClassWrapper<R> extends WrapperAbstract
 {
 
@@ -49,7 +50,7 @@ public class ClassWrapper<R> extends WrapperAbstract
 	public R newInstanceSilent() {
 		try {
 			return this.clazz.newInstance();
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 		return null;
 	}

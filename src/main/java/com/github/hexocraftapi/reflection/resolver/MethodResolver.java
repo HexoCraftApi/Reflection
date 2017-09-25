@@ -24,6 +24,7 @@ import java.lang.reflect.Method;
 /**
  * Resolver for methods
  */
+@SuppressWarnings("unused")
 public class MethodResolver extends MemberResolver<Method> {
 
 	public MethodResolver(Class<?> clazz) {
@@ -88,7 +89,7 @@ public class MethodResolver extends MemberResolver<Method> {
 	public Method resolveSilent(String... names) {
 		try {
 			return resolve(names);
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 		return null;
 	}
